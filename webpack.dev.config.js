@@ -75,7 +75,7 @@ module.exports = (env) => {
         path: './variables.env.dev',
       }),
       new webpack.EnvironmentPlugin({
-        BASE_URL: env.base_url || 'http://localhost:1001',
+        BASE_URL: env.base_url || 'http://localhost:1000',
       }),
     ],
   }

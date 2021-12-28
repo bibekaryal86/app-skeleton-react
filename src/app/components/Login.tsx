@@ -158,6 +158,7 @@ const Login = (props: SignInProps): React.ReactElement => {
     if (state?.redirect && !authContext.auth.isLoggedIn) {
       setAlert(ALERT_TYPE_FAILURE, MSG_KEY_SIGNIN_FIRST)
     }
+    // state.message = ''
   }, [authContext.auth.isLoggedIn, setAlert, state])
 
   return <>{signInForm()}</>

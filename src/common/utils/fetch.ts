@@ -106,6 +106,11 @@ export const Async = {
       .then((response) => {
         if (!response.ok) {
           console.log('Error Response: ', response)
+
+          if (response.status === 401) {
+            LocalStorage.setItem('forceLogout', true)
+          }
+
           return Promise.resolve({ errMsg: response.status })
         }
 
