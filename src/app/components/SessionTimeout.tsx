@@ -22,6 +22,25 @@ const SessionTimeout = (props: LogoutProps) => {
   const warningInactiveInterval = useRef(0)
   const startTimerInterval = useRef(0)
 
+  const navigateToHome = useCallback(
+    (msg: string) => {
+      console.log(msg)
+      clearInterval(warningInactiveInterval.current)
+      userLogout()
+      authContext.login({
+        isLoggedIn: false,
+        token: '',
+        userDetails: DefaultUserDetails,
+      })
+
+      navigate('/', {
+        replace: true,
+        state: { message: MSG_KEY_SESSION_INVALID },
+      })
+    },
+    [authContext, navigate, userLogout],
+  )
+
   const warningInactive = useCallback(
     (timeString: string) => {
       clearTimeout(startTimerInterval.current)
@@ -32,23 +51,11 @@ const SessionTimeout = (props: LogoutProps) => {
         const currentTime = moment()
 
         if (isAuthenticated && expirationTime.isSameOrBefore(currentTime)) {
-          console.log('Token Expired, Redirecting to Home')
-          clearInterval(warningInactiveInterval.current)
-          userLogout()
-          authContext.login({
-            isLoggedIn: false,
-            token: '',
-            userDetails: DefaultUserDetails,
-          })
-
-          navigate('/', {
-            replace: true,
-            state: { message: MSG_KEY_SESSION_INVALID },
-          })
+          navigateToHome('Token Expired, Redirecting to Home')
         }
       }, 1000)
     },
-    [authContext, navigate, userLogout],
+    [navigateToHome],
   )
 
   // start inactive check
@@ -65,15 +72,18 @@ const SessionTimeout = (props: LogoutProps) => {
     clearInterval(warningInactiveInterval.current)
 
     const isAuthenticated = (LocalStorage.getItem('tokenExpiration') as string)?.length > 0
+    const isForceCheckout = LocalStorage.getItem('forceLogout') as boolean
 
-    if (isAuthenticated) {
+    if (isForceCheckout && isAuthenticated) {
+      navigateToHome('Token Invalid Redirecting to Home')
+    } else if (isAuthenticated) {
       LocalStorage.setItem('tokenExpiration', moment().add(15, 'minutes'))
     } else {
       clearInterval(warningInactiveInterval.current)
     }
 
     timeChecker()
-  }, [timeChecker])
+  }, [navigateToHome, timeChecker])
 
   useEffect(() => {
     events.forEach((event) => {

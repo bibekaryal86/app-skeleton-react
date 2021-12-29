@@ -34,5 +34,8 @@ export const ALERT_MESSAGES = new Map([
   [MSG_KEY_INVALID_SIGNIN, 'Invalid Input! Please Try Again!!!'],
   [MSG_KEY_FAIL_SIGNIN, 'Invalid Username and/or Password! Please Try Again!!!'],
   [MSG_KEY_SIGNIN_FIRST, 'Please Sign In First!!!'],
-  [MSG_KEY_SESSION_INVALID, 'Session Invalidated Due to Inactivity! Please Sign In to Continue!!!'],
+  [
+    MSG_KEY_SESSION_INVALID,
+    'Session Invalidated Due to Inactivity/Expiry! Please Sign In Again to Continue!!!',
+  ],
 ])
