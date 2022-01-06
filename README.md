@@ -16,6 +16,10 @@
     * `amplity.yml`
         * Included if deploying to AWS Amplify
         * Even if deploying to AWS, this file is optional
+        * Remove `gcp` folder if using this
+    * `gcp` folder
+        * Included if deploying to GCP AppEngine instead of AWS Amplify
+        * Remove `amplify.yml` folder if using this
     * `Dockerfile`
         * Has extra installs for webpack, don't know why or how, just didn't work on previous app without it
         * Worked in Windows without those extra installs, does not work in Raspberry Pi without them

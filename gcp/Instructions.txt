@@ -1,0 +1,9 @@
+* Run production build to create a
+
+upload this folder to gcloud cloud shell home and gcloud app deploy app.yaml
+
+-> activate cloud shell (click the shell icon on top right corner from inside the spa project)
+-> cd (this goes to home directory, just making sure)
+-> Upload folder to home directory
+-> cd to go inside the folder. folder content -> build directory and app.yaml
+-> gcloud app deploy app.yaml
