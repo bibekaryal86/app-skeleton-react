@@ -18,6 +18,7 @@
         * Even if deploying to AWS, this file is optional
     * `Dockerfile`
         * Has extra installs for webpack, don't know why or how, just didn't work on previous app without it
+        * Worked in Windows without those extra installs, does not work in Raspberry Pi without them
     * `variables.env`
         * update version and add endpoints as necessary
     * `webpack.dev.config.js`
