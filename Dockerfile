@@ -3,15 +3,7 @@ FROM node:16-alpine as build
 WORKDIR /usr/src/app
 COPY package*.json /usr/src/app/
 RUN npm install --production
-#RUN npm install \
-#    webpack \
-#    webpack-cli \
-#    webpack-dev-server \
-#    html-webpack-plugin \
-#    fork-ts-checker-webpack-plugin\
-#    eslint-webpack-plugin \
-#    clean-webpack-plugin \
-#    dotenv-webpack
+RUN npm install webpack html-webpack-plugin clean-webpack-plugin dotenv-webpack
 COPY . /usr/src/app/
 RUN npm run build
 

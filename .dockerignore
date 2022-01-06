@@ -1,3 +1,4 @@
+.git
 .github
 .idea
 build
@@ -5,6 +6,5 @@ node_modules
 .dockerignore
 .gitignore
 amplify.yml
-Dockerfile-win64
 Dockerfile
 README.md
