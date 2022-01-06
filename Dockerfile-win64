@@ -4,7 +4,7 @@ WORKDIR /usr/src/app
 COPY package*.json /usr/src/app/
 RUN npm install --production
 COPY . /usr/src/app/
-RUN npm run docker-build
+RUN npm run build
 
 # STAGE 2: PRODUCTION DEPLOYMENT #
 FROM nginx:1.21.4-alpine

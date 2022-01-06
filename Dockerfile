@@ -13,7 +13,7 @@ RUN npm install --production
 #    clean-webpack-plugin \
 #    dotenv-webpack
 COPY . /usr/src/app/
-RUN npm run docker-build
+RUN npm run build
 
 # STAGE 2: PRODUCTION DEPLOYMENT #
 FROM nginx:1.21.4-alpine
