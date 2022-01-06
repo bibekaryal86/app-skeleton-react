@@ -16,8 +16,8 @@
     * `amplity.yml`
         * Included if deploying to AWS Amplify
         * Even if deploying to AWS, this file is optional
-    * `Dockerfile` and `Dockerfile-win64` are for Raspi and Windows respectively
-        * `Dockerfile` has extra installs, don't know why or how, just didn't work on previous app without it
+    * `Dockerfile`
+        * Has extra installs for webpack, don't know why or how, just didn't work on previous app without it
     * `variables.env`
         * update version and add endpoints as necessary
     * `webpack.dev.config.js`
