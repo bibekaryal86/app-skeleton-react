@@ -10,7 +10,7 @@
     "prettier": "prettier --check \"**/*.+(js|jsx|ts|tsx)\"",
     "prettier:write": "prettier --write \"**/*.+(js|jsx|ts|tsx)\"",
     "lint": "eslint src/** --ext .js,.ts,.tsx",
-    "lint:fix": "npm run prettier:write && npm run lint -- --fix",
+    "lint:fix": "npm run lint -- --fix",
     "test": "jest --config ./jest.config.js --passWithNoTests",
     "test:u": "npm run test -- -u",
     "test:watch": "jest --config ./jest.config.js --watch"
