@@ -13,18 +13,10 @@ const AppRoutes = (): React.ReactElement => {
         <Route key={publicRoute.path} path={publicRoute.path} element={publicRoute.element} />
       ))}
       {protectedRoutes.map((protectedRoute) => (
-        <Route
-          key={protectedRoute.path}
-          path={protectedRoute.path}
-          element={getRequireAuth(protectedRoute.element)}
-        >
+        <Route key={protectedRoute.path} path={protectedRoute.path} element={getElement(protectedRoute.element)}>
           {protectedRoute.subroutes &&
             protectedRoute.subroutes.map((subroute) => (
-              <Route
-                key={subroute.path}
-                path={subroute.path}
-                element={getRequireAuth(subroute.element)}
-              />
+              <Route key={subroute.path} path={subroute.path} element={getElement(subroute.element)} />
             ))}
         </Route>
       ))}
@@ -32,14 +24,10 @@ const AppRoutes = (): React.ReactElement => {
         (protectedRoute) =>
           protectedRoute.submenus &&
           protectedRoute.submenus.map((submenu) => (
-            <Route key={submenu.path} path={submenu.path} element={getRequireAuth(submenu.element)}>
+            <Route key={submenu.path} path={submenu.path} element={getElement(submenu.element)}>
               {submenu.subroutes &&
                 submenu.subroutes.map((subroute) => (
-                  <Route
-                    key={subroute.path}
-                    path={subroute.path}
-                    element={getRequireAuth(subroute.element)}
-                  />
+                  <Route key={subroute.path} path={subroute.path} element={getElement(subroute.element)} />
                 ))}
             </Route>
           )),
@@ -48,17 +36,12 @@ const AppRoutes = (): React.ReactElement => {
   )
 }
 
-const getRequireAuth = (children: React.ReactElement | undefined) =>
-  children && <RequireAuth>{children}</RequireAuth>
+const getElement = (children: React.ReactElement | undefined) => children && <RequireAuth>{children}</RequireAuth>
 
 function RequireAuth({ children }: { children: React.ReactElement }) {
   const location = useLocation()
   const isLoggedIn = LocalStorage.getItem('token') as string
-  return isLoggedIn?.length ? (
-    children
-  ) : (
-    <Navigate to="/" replace state={{ redirect: location.pathname }} />
-  )
+  return isLoggedIn?.length ? children : <Navigate to="/" replace state={{ redirect: location.pathname }} />
 }
 
 const publicRoutes = [
@@ -83,7 +66,7 @@ export const protectedRoutes = [
     element: <Home />,
     subroutes: [
       {
-        path: '/home',
+        path: ':id',
         element: <Home />,
       },
     ],

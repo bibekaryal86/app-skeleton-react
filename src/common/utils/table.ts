@@ -24,11 +24,7 @@ interface CsvReport {
   filename: string
 }
 
-export function getCsvReport(
-  tableHeaders: string[],
-  tableData: TableData[],
-  tableFilename?: string,
-): CsvReport {
+export function getCsvReport(tableHeaders: string[], tableData: TableData[], tableFilename?: string): CsvReport {
   const tableDataKeys = Object.keys(tableData[0]) as Array<string>
 
   return {
@@ -86,12 +82,7 @@ function getDataItemValue(dataItem: string | JSX.Element): string {
   return dataItemValue
 }
 
-export function getSortData(
-  currentSortData: SortData,
-  header: string,
-  index: number,
-  tableData: TableData,
-): SortData {
+export function getSortData(currentSortData: SortData, header: string, index: number, tableData: TableData): SortData {
   if (header && tableData) {
     let sortDirection = TABLE_SORT_DIRECTION_ASCENDING
     let sortedDirection = TABLE_SORTED_ASC_CODE

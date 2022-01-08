@@ -57,9 +57,7 @@ interface CheckboxesPropsExtra {
   setFocus: (focus: boolean) => void
 }
 
-const Checkboxes = (
-  props: CheckboxesProps & Partial<CheckboxProps> & CheckboxesPropsExtra,
-): React.ReactElement => {
+const Checkboxes = (props: CheckboxesProps & Partial<CheckboxProps> & CheckboxesPropsExtra): React.ReactElement => {
   const onClick = useCallback(
     (event: React.MouseEvent<HTMLInputElement, MouseEvent>) => {
       if (!props.disabled) {
@@ -135,18 +133,8 @@ const Checkbox = (props: CheckboxProps): React.ReactElement => {
       ))}
       {props.includeButtons && (
         <>
-          <Button
-            id={props.id + '-selectAll'}
-            title="Select All"
-            onClick={onSelectAll}
-            includeBorder
-          />
-          <Button
-            id={props.id + '-selectNone'}
-            title="Select None"
-            onClick={onSelectNone}
-            includeBorder
-          />
+          <Button id={props.id + '-selectAll'} title="Select All" onClick={onSelectAll} includeBorder />
+          <Button id={props.id + '-selectNone'} title="Select None" onClick={onSelectNone} includeBorder />
         </>
       )}
     </CheckboxWrapper>

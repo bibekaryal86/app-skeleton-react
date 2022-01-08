@@ -38,9 +38,6 @@ const rootReducer = (state: any, action: any) => {
 const store =
   process.env.NODE_ENV === 'production'
     ? createStore(rootReducer, applyMiddleware(thunk))
-    : createStore(
-        rootReducer,
-        composeWithDevTools(applyMiddleware(thunk, reduxImmutableStateInvariant())),
-      )
+    : createStore(rootReducer, composeWithDevTools(applyMiddleware(thunk, reduxImmutableStateInvariant())))
 
 export default store

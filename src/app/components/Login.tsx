@@ -73,17 +73,7 @@ const Login = (props: SignInProps): React.ReactElement => {
     }
 
     resetSpinner()
-  }, [
-    authContext,
-    navigate,
-    password,
-    resetAlert,
-    resetSpinner,
-    setAlert,
-    setSpinner,
-    state?.redirect,
-    username,
-  ])
+  }, [authContext, navigate, password, resetAlert, resetSpinner, setAlert, setSpinner, state?.redirect, username])
 
   const onSearchEnterCallback = useCallback(
     (event: React.KeyboardEvent<HTMLInputElement>) => {
@@ -126,13 +116,7 @@ const Login = (props: SignInProps): React.ReactElement => {
         </form>
       </DisplayCardRow>
       <DisplayCardRow textAlign="center">
-        <Button
-          id={'sign-in-submit'}
-          title="Sign In"
-          onClick={handleSubmit}
-          includeBorder
-          color="green"
-        />
+        <Button id={'sign-in-submit'} title="Sign In" onClick={handleSubmit} includeBorder color="green" />
         <Button
           id={'sign-in-create'}
           title="Create Account"
@@ -142,11 +126,7 @@ const Login = (props: SignInProps): React.ReactElement => {
         />
       </DisplayCardRow>
       <DisplayCardRow borderTop textAlign="center">
-        <Button
-          id={'sign-in-forgot'}
-          title="Forgot Password?"
-          onClick={() => alert('TODO: Currently Unavailable')}
-        />
+        <Button id={'sign-in-forgot'} title="Forgot Password?" onClick={() => alert('TODO: Currently Unavailable')} />
       </DisplayCardRow>
     </DisplayCardWrapperBody>
   )

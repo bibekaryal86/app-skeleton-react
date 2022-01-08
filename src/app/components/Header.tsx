@@ -113,11 +113,7 @@ const Header = (): React.ReactElement => {
 
 const HeaderLinks = ({ displayName = '' }): React.ReactElement => {
   return (
-    <StyledNav
-      justifycontent={displayName.trim() ? 'space-between' : ''}
-      background="seagreen"
-      fontWeight="bold"
-    >
+    <StyledNav justifycontent={displayName.trim() ? 'space-between' : ''} background="seagreen" fontWeight="bold">
       React SPA Skeleton
       {displayName.trim() ? (
         <>
