@@ -9,21 +9,47 @@ import { LocalStorage } from '../../common/utils/localStorageHelper'
 const AppRoutes = (): React.ReactElement => {
   return (
     <Routes>
-      <Route path="*" element={<NotFound />} />
-      <Route path={'/'} element={<LoginContainer />} />
-      <Route path={'/logout'} element={<LogoutContainer />} />
-
-      <Route
-        path={'/home'}
-        element={
-          <RequireAuth>
-            <Home />
-          </RequireAuth>
-        }
-      />
+      {publicRoutes.map((publicRoute) => (
+        <Route key={publicRoute.path} path={publicRoute.path} element={publicRoute.element} />
+      ))}
+      {protectedRoutes.map((protectedRoute) => (
+        <Route
+          key={protectedRoute.path}
+          path={protectedRoute.path}
+          element={getRequireAuth(protectedRoute.element)}
+        >
+          {protectedRoute.subroutes &&
+            protectedRoute.subroutes.map((subroute) => (
+              <Route
+                key={subroute.path}
+                path={subroute.path}
+                element={getRequireAuth(subroute.element)}
+              />
+            ))}
+        </Route>
+      ))}
+      {protectedRoutes.map(
+        (protectedRoute) =>
+          protectedRoute.submenus &&
+          protectedRoute.submenus.map((submenu) => (
+            <Route key={submenu.path} path={submenu.path} element={getRequireAuth(submenu.element)}>
+              {submenu.subroutes &&
+                submenu.subroutes.map((subroute) => (
+                  <Route
+                    key={subroute.path}
+                    path={subroute.path}
+                    element={getRequireAuth(subroute.element)}
+                  />
+                ))}
+            </Route>
+          )),
+      )}
     </Routes>
   )
 }
+
+const getRequireAuth = (children: React.ReactElement | undefined) =>
+  children && <RequireAuth>{children}</RequireAuth>
 
 function RequireAuth({ children }: { children: React.ReactElement }) {
   const location = useLocation()
@@ -34,5 +60,47 @@ function RequireAuth({ children }: { children: React.ReactElement }) {
     <Navigate to="/" replace state={{ redirect: location.pathname }} />
   )
 }
+
+const publicRoutes = [
+  {
+    path: '*',
+    element: <NotFound />,
+  },
+  {
+    path: '/',
+    element: <LoginContainer />,
+  },
+  {
+    path: '/signout',
+    element: <LogoutContainer />,
+  },
+]
+
+export const protectedRoutes = [
+  {
+    path: '/home',
+    display: 'Home',
+    element: <Home />,
+    subroutes: [
+      {
+        path: '/home',
+        element: <Home />,
+      },
+    ],
+    submenus: [
+      {
+        path: '/home',
+        display: 'Home',
+        element: <Home />,
+        subroutes: [
+          {
+            path: ':id',
+            element: <Home />,
+          },
+        ],
+      },
+    ],
+  },
+]
 
 export default AppRoutes
