@@ -1,6 +1,6 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-import { DisplayCardRow, DisplayCardWrapperBody } from '../../styles/StyledDisplayCard'
+import { DisplayCardRow, DisplayCardWrapperBody } from '../../styles'
 
 const Home = (): React.ReactElement => {
   const homePageText = () => (

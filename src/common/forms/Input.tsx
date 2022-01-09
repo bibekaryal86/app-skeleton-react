@@ -73,10 +73,7 @@ const Input = React.memo<InputProps>((props) => {
   const onChange = useCallback(
     (event: React.ChangeEvent<HTMLInputElement>) => {
       if (!props.disabled) {
-        props.onChange(
-          props.inputFilter ? props.inputFilter(value, event.target.value) : event.target.value,
-          event,
-        )
+        props.onChange(props.inputFilter ? props.inputFilter(value, event.target.value) : event.target.value, event)
       }
     },
     [props, value],

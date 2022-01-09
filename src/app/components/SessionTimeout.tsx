@@ -1,10 +1,10 @@
 import { Fragment, useCallback, useContext, useEffect, useMemo, useRef } from 'react'
 import moment from 'moment'
-import { LocalStorage } from '../../common/utils/localStorageHelper'
+import { LocalStorage } from '../../common'
 import { AuthContext } from '../context/AuthContext'
 import { DefaultUserDetails } from '../types/login.data.types'
 import { useNavigate } from 'react-router-dom'
-import { MSG_KEY_SESSION_INVALID } from '../../common/utils/constants'
+import { MSG_KEY_SESSION_INVALID } from '../../constants'
 
 interface LogoutProps {
   userLogout: () => void

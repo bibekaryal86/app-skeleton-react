@@ -1,20 +1,15 @@
 import React, { useCallback, useContext, useEffect, useState } from 'react'
-import Input, { InputType } from '../../common/forms/Input'
-import Button from '../../common/forms/Button'
+import { Input, InputType } from '../../common'
+import { Button } from '../../common'
 import { validateLogInInput } from '../utils/loginValidate'
-import {
-  ALERT_TYPE_FAILURE,
-  ALERT_TYPE_INFO,
-  MSG_KEY_INVALID_SIGNIN,
-  MSG_KEY_SIGNIN_FIRST,
-} from '../../common/utils/constants'
+import { ALERT_TYPE_FAILURE, ALERT_TYPE_INFO, MSG_KEY_INVALID_SIGNIN, MSG_KEY_SIGNIN_FIRST } from '../../constants'
 import { AuthContext } from '../context/AuthContext'
 import { useLocation, useNavigate } from 'react-router-dom'
 import { userLogin } from '../actions/login.action'
 import { LoginResponse } from '../types/login.data.types'
-import { LocalStorage } from '../../common/utils/localStorageHelper'
+import { LocalStorage } from '../../common'
 import moment from 'moment'
-import { DisplayCardRow, DisplayCardWrapperBody } from '../../styles/StyledDisplayCard'
+import { DisplayCardRow, DisplayCardWrapperBody } from '../../styles'
 
 interface SignInProps {
   setAlert: (type: string, messageKey: string) => void
@@ -73,17 +68,7 @@ const Login = (props: SignInProps): React.ReactElement => {
     }
 
     resetSpinner()
-  }, [
-    authContext,
-    navigate,
-    password,
-    resetAlert,
-    resetSpinner,
-    setAlert,
-    setSpinner,
-    state?.redirect,
-    username,
-  ])
+  }, [authContext, navigate, password, resetAlert, resetSpinner, setAlert, setSpinner, state?.redirect, username])
 
   const onSearchEnterCallback = useCallback(
     (event: React.KeyboardEvent<HTMLInputElement>) => {
@@ -126,13 +111,7 @@ const Login = (props: SignInProps): React.ReactElement => {
         </form>
       </DisplayCardRow>
       <DisplayCardRow textAlign="center">
-        <Button
-          id={'sign-in-submit'}
-          title="Sign In"
-          onClick={handleSubmit}
-          includeBorder
-          color="green"
-        />
+        <Button id={'sign-in-submit'} title="Sign In" onClick={handleSubmit} includeBorder color="green" />
         <Button
           id={'sign-in-create'}
           title="Create Account"
@@ -142,11 +121,7 @@ const Login = (props: SignInProps): React.ReactElement => {
         />
       </DisplayCardRow>
       <DisplayCardRow borderTop textAlign="center">
-        <Button
-          id={'sign-in-forgot'}
-          title="Forgot Password?"
-          onClick={() => alert('TODO: Currently Unavailable')}
-        />
+        <Button id={'sign-in-forgot'} title="Forgot Password?" onClick={() => alert('TODO: Currently Unavailable')} />
       </DisplayCardRow>
     </DisplayCardWrapperBody>
   )

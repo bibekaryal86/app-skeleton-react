@@ -19,9 +19,7 @@ export const TABLE_EXPORT_KEYS_TO_AVOID = ['actions', 'Actions']
 export const TABLE_EXPORT_KEY_FOR_TITLE = 'title'
 
 export const DATE_FORMAT_MATCHER_REGEX = new RegExp('[0-9]{4}\\-[0-9]{2}\\-[0-9]{2}')
-export const CURRENCY_FORMAT_MATCHER_REGEX = new RegExp(
-  '^\\$|\\-\\$(\\d{1,3}(\\,\\d{3})*|(\\d+))(\\.\\d{1,2})?$',
-)
+export const CURRENCY_FORMAT_MATCHER_REGEX = new RegExp('^\\$|\\-\\$(\\d{1,3}(\\,\\d{3})*|(\\d+))(\\.\\d{1,2})?$')
 
 export const MSG_KEY_SOMETHING_WENT_WRONG = 'GENERIC_ERROR'
 export const MSG_KEY_INVALID_SIGNIN = 'INVALID_SIGNIN'
@@ -34,8 +32,5 @@ export const ALERT_MESSAGES = new Map([
   [MSG_KEY_INVALID_SIGNIN, 'Invalid Input! Please Try Again!!!'],
   [MSG_KEY_FAIL_SIGNIN, 'Invalid Username and/or Password! Please Try Again!!!'],
   [MSG_KEY_SIGNIN_FIRST, 'Please Sign In First!!!'],
-  [
-    MSG_KEY_SESSION_INVALID,
-    'Session Invalidated Due to Inactivity/Expiry! Please Sign In Again to Continue!!!',
-  ],
+  [MSG_KEY_SESSION_INVALID, 'Session Invalidated Due to Inactivity/Expiry! Please Sign In Again to Continue!!!'],
 ])

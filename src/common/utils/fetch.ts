@@ -77,14 +77,7 @@ const getBody = (method: string, body: unknown) =>
 
 export const Async = {
   fetch: async (urlPath: string, options: Partial<FetchOptions>): Promise<FetchResponse> => {
-    const {
-      queryParams,
-      pathParams,
-      method = 'GET',
-      requestBody = {},
-      requestHeaders = {},
-      noAuth = false,
-    } = options
+    const { queryParams, pathParams, method = 'GET', requestBody = {}, requestHeaders = {}, noAuth = false } = options
 
     const url = getUrl({ path: urlPath, queryParams, pathParams })
     const headers = getHeaders(!noAuth, requestHeaders)

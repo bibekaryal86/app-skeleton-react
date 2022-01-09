@@ -109,11 +109,7 @@ const RadioButton = (props: RadioButtonProps): React.ReactElement => {
   const formLabel = (label: string, required: boolean): string => (required ? label + ' *' : label)
 
   return (
-    <RadioButtonWrapper
-      required={props.required === true}
-      focus={focus}
-      showSideBySide={props.showSideBySide}
-    >
+    <RadioButtonWrapper required={props.required === true} focus={focus} showSideBySide={props.showSideBySide}>
       <FormLabel htmlFor={props.id}>{formLabel(props.title, props.required === true)}</FormLabel>
       {props.radioButtons.map((radioButton) => (
         <RadioButtons

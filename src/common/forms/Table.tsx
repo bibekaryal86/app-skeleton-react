@@ -2,8 +2,8 @@ import React, { useCallback, useMemo, useState } from 'react'
 import styled, { css } from 'styled-components'
 import { CSVLink } from 'react-csv'
 import { getCsvReport, getSortData, getSortedData } from '../utils/table'
-import { TABLE_EXPORT_KEYS_TO_AVOID, TABLE_SORTED_NONE_CODE } from '../utils/constants'
-import { DisplayCardRow, DisplayCardWrapperBody } from '../../styles/StyledDisplayCard'
+import { TABLE_EXPORT_KEYS_TO_AVOID, TABLE_SORTED_NONE_CODE } from '../../constants'
+import { DisplayCardRow, DisplayCardWrapperBody } from '../../styles'
 
 const TableMaxWidthWrapper = styled.div.attrs({
   className: 'table-max-width-wrapper',
@@ -145,9 +145,7 @@ const Table = (props: TableProps): React.ReactElement | null => {
                         props.onHeaderClick && props.onHeaderClick(header)
                         props.isSortAllowed && sortTableData(header, key)
                       }}
-                      isSortAllowed={
-                        props.isSortAllowed && !TABLE_EXPORT_KEYS_TO_AVOID.includes(header)
-                      }
+                      isSortAllowed={props.isSortAllowed && !TABLE_EXPORT_KEYS_TO_AVOID.includes(header)}
                     >
                       {header}
                       {header === sortData.header && String.fromCharCode(sortData.sortedDirection)}
@@ -184,10 +182,7 @@ const Table = (props: TableProps): React.ReactElement | null => {
                 ) : (
                   <TableFooter>
                     {props.footer.map((item: TableData, index: number) => (
-                      <TableRow
-                        key={index}
-                        onClick={() => props.onRowClick && props.onRowClick(item)}
-                      >
+                      <TableRow key={index} onClick={() => props.onRowClick && props.onRowClick(item)}>
                         {(Object.keys(tableData[0]) as Array<keyof TableData>).map((key) => (
                           <TableCellData key={key.toString()}>{item[key]}</TableCellData>
                         ))}
@@ -199,9 +194,7 @@ const Table = (props: TableProps): React.ReactElement | null => {
           </TableScrollWrapper>
           {props.isExportToCsv && tableData?.length && props.headers?.length && (
             <CSVLinkWrapper>
-              <CSVLink {...getCsvReport(props.headers, tableData, props.exportToCsvFileName)}>
-                Export to CSV
-              </CSVLink>
+              <CSVLink {...getCsvReport(props.headers, tableData, props.exportToCsvFileName)}>Export to CSV</CSVLink>
             </CSVLinkWrapper>
           )}
         </TableMaxWidthWrapper>

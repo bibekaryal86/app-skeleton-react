@@ -2,8 +2,8 @@ import React, { useContext, useEffect, useState } from 'react'
 import { NavLink } from 'react-router-dom'
 import styled from 'styled-components'
 import { UserDetails } from '../types/login.data.types'
-import { protectedRoutes } from '../utils/routes'
 import { AuthContext } from '../context/AuthContext'
+import { protectedRoutes } from './AppRoutes'
 
 const StyledHeader = styled.header.attrs({
   className: 'styled-header',
@@ -113,11 +113,7 @@ const Header = (): React.ReactElement => {
 
 const HeaderLinks = ({ displayName = '' }): React.ReactElement => {
   return (
-    <StyledNav
-      justifycontent={displayName.trim() ? 'space-between' : ''}
-      background="seagreen"
-      fontWeight="bold"
-    >
+    <StyledNav justifycontent={displayName.trim() ? 'space-between' : ''} background="seagreen" fontWeight="bold">
       React SPA Skeleton
       {displayName.trim() ? (
         <>
@@ -135,19 +131,17 @@ const HeaderLinks = ({ displayName = '' }): React.ReactElement => {
   )
 }
 
-const getRoutePath = (route: string) => route.split('/:')[0]
-
 const Navigation = ({ isLoggedIn = false }): React.ReactElement => {
   return (
     <StyledNav justifycontent="center">
       {protectedRoutes.map((route) =>
         route.display ? (
-          route.submenu ? (
+          route.submenus ? (
             <StyledNavDropdownMenu key={route.path}>
-              <StyledNavLink to={getRoutePath(route.path)}>{route.display}</StyledNavLink>
+              <StyledNavLink to={route.path}>{route.display}</StyledNavLink>
               {isLoggedIn && (
                 <StyledNavDropdownMenuContent>
-                  {route.submenu.map((subroute) => (
+                  {route.submenus.map((subroute) => (
                     <StyledNavLinkDropdown key={subroute.path} to={subroute.path}>
                       {subroute.display}
                     </StyledNavLinkDropdown>
