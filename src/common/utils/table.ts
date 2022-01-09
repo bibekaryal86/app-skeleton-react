@@ -9,7 +9,7 @@ import {
   TABLE_SORTED_ASC_CODE,
   TABLE_SORTED_DESC_CODE,
   TABLE_SORTED_NONE_CODE,
-} from './constants'
+} from '../../constants'
 
 interface CsvHeaders {
   label: string

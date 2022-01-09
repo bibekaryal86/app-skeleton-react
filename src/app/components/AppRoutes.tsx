@@ -1,10 +1,10 @@
 import React from 'react'
 import { Navigate, Route, Routes, useLocation } from 'react-router-dom'
 import LoginContainer from './LoginContainer'
-import Home from '../../home/components/Home'
+import { Home } from '../../home'
 import NotFound from './NotFound'
 import LogoutContainer from './LogoutContainer'
-import { LocalStorage } from '../../common/utils/localStorageHelper'
+import { LocalStorage } from '../../common'
 
 const AppRoutes = (): React.ReactElement => {
   return (

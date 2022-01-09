@@ -4,10 +4,7 @@ import { applyMiddleware, combineReducers, createStore } from 'redux'
 import thunk from 'redux-thunk'
 import reduxImmutableStateInvariant from 'redux-immutable-state-invariant'
 import { composeWithDevTools } from 'redux-devtools-extension'
-import alert from '../../common/reducers/alert.reducer'
-import spinner from '../../common/reducers/spinner.reducer'
-import { AlertState } from '../../common/utils/alerts'
-import { SpinnerState } from '../../common/utils/spinner'
+import { alert, AlertState, spinner, SpinnerState } from '../../common'
 import { USER_LOGOUT } from '../types/login.action.types'
 
 // ACTIONS (ESP: FETCH ACTIONS) SHOULD BE NAMED IN THE FOLLOWING PATTERN:
