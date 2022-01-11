@@ -54,7 +54,7 @@ const publicRoutes = [
     element: <LoginContainer />,
   },
   {
-    path: '/signout',
+    path: '/logout',
     element: <LogoutContainer />,
   },
 ]
