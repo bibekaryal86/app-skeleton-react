@@ -23,11 +23,11 @@ jobs:
         with:
           node-version: ${{ matrix.node-version }}
 
-      - name: Build
+      - name: Install
         run: npm install
       - name: Lint
         run: npm run lint
       - name: Test
-        run: npm test
-      - name: Prod Check
+        run: npm test -- reporters=default
+      - name: Build
         run: npx webpack --config webpack.prod.config.js
