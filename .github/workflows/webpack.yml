@@ -28,6 +28,6 @@ jobs:
       - name: Lint
         run: npm run lint
       - name: Test
-        run: npm test -- reporters=default
+        run: npm test -- --reporters=default
       - name: Build
         run: npx webpack --config webpack.prod.config.js
