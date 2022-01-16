@@ -9,6 +9,7 @@ interface DisplayCardProps {
   alignContent?: string
   background?: string
   fontWeight?: string
+  color?: string
   children: string | JSX.Element | JSX.Element[]
 }
 
@@ -21,6 +22,7 @@ export const DisplayCardWrapper = styled.div.attrs({
   align-content: ${(props) => (props.alignContent ? props.alignContent : 'flex-start')};
   margin: 5px;
   padding: 5px;
+  color: ${(props) => (props.color ? props.color : 'automatic')};
 `
 
 export const DisplayCardBody = styled.div.attrs({
