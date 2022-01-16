@@ -5,6 +5,7 @@ import { Home } from '../../home'
 import NotFound from './NotFound'
 import LogoutContainer from './LogoutContainer'
 import { LocalStorage } from '../../common'
+import { RoutesType } from '../types/routes.data.types'
 
 const AppRoutes = (): React.ReactElement => {
   return (
@@ -44,7 +45,7 @@ function RequireAuth({ children }: { children: React.ReactElement }) {
   return isLoggedIn?.length ? children : <Navigate to="/" replace state={{ redirect: location.pathname }} />
 }
 
-const publicRoutes = [
+const publicRoutes: RoutesType[] = [
   {
     path: '*',
     element: <NotFound />,
@@ -59,7 +60,7 @@ const publicRoutes = [
   },
 ]
 
-export const protectedRoutes = [
+export const protectedRoutes: RoutesType[] = [
   {
     path: '/home',
     display: 'Home',
