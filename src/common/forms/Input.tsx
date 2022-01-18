@@ -7,6 +7,7 @@ const FormInput = styled.input``
 const InputWrapper = styled.div.attrs({ className: 'input-wrapper' })<{
   focus: boolean
   required?: boolean
+  width?: string
 }>`
   ${FormLabel} {
     ${({ focus, required }) => css`
@@ -15,8 +16,9 @@ const InputWrapper = styled.div.attrs({ className: 'input-wrapper' })<{
   }
 
   ${FormInput} {
-    ${({ focus, required }) => css`
+    ${({ focus, required, width }) => css`
       border: ${focus && required ? '2px solid #e60000' : ''};
+      width: ${width ? width : ''};
     `}
   }
 `
@@ -43,6 +45,7 @@ interface InputOptionalProps {
   required: boolean
   type: InputType
   autoComplete: string
+  width: string
 }
 
 interface InputOptionalCallbacks {
@@ -102,7 +105,7 @@ const Input = React.memo<InputProps>((props) => {
   const formLabel = (label: string, required?: boolean): string => (required ? label + ' *' : label)
 
   return (
-    <InputWrapper focus={focus} required={props.required}>
+    <InputWrapper focus={focus} required={props.required} width={props.width}>
       <FormLabel htmlFor={props.id}>{formLabel(props.label, props.required)}</FormLabel>
       <FormInput
         className={props.className}
