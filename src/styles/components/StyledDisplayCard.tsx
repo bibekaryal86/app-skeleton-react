@@ -10,8 +10,8 @@ interface DisplayCardProps {
   background?: string
   fontWeight?: string
   color?: string
-  container?: string
   children: string | JSX.Element | JSX.Element[]
+  container?: boolean
 }
 
 const DisplayCardWrapper = styled.div.attrs({
