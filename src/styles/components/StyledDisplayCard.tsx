@@ -13,7 +13,11 @@ interface DisplayCardProps {
   children: string | JSX.Element | JSX.Element[]
   // for skeleton CSS container/row/column if used
   container?: boolean
-  classname?: string
+}
+
+interface DisplayCardPropsColumn extends DisplayCardProps {
+  // for skeleton CSS container/row/column if used
+  classname: string
 }
 
 const DisplayCardWrapper = styled.div.attrs({
@@ -64,6 +68,6 @@ export const DisplayCardWrapperRow = (props: DisplayCardProps) => (
   </DisplayCardRow>
 )
 
-export const DisplayCardWrapperColumn = (props: DisplayCardProps) => (
+export const DisplayCardWrapperColumn = (props: DisplayCardPropsColumn) => (
   <>{props.classname ? <div className={props.classname}>{props.children}</div> : <>{props.children}</>}</>
 )
