@@ -11,7 +11,9 @@ interface DisplayCardProps {
   fontWeight?: string
   color?: string
   children: string | JSX.Element | JSX.Element[]
+  // for skeleton CSS container/row/column if used
   container?: boolean
+  classname?: string
 }
 
 const DisplayCardWrapper = styled.div.attrs({
@@ -60,4 +62,8 @@ export const DisplayCardWrapperRow = (props: DisplayCardProps) => (
   <DisplayCardRow {...props}>
     {props.container ? <div className="row">{props.children}</div> : <>{props.children}</>}
   </DisplayCardRow>
+)
+
+export const DisplayCardWrapperColumn = (props: DisplayCardProps) => (
+  <>{props.classname ? <div className={props.classname}>{props.children}</div> : <>{props.children}</>}</>
 )
