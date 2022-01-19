@@ -10,10 +10,11 @@ interface DisplayCardProps {
   background?: string
   fontWeight?: string
   color?: string
+  container?: string
   children: string | JSX.Element | JSX.Element[]
 }
 
-export const DisplayCardWrapper = styled.div.attrs({
+const DisplayCardWrapper = styled.div.attrs({
   className: 'display-card-wrapper',
 })<DisplayCardProps>`
   display: flex;
@@ -25,7 +26,7 @@ export const DisplayCardWrapper = styled.div.attrs({
   color: ${(props) => (props.color ? props.color : 'automatic')};
 `
 
-export const DisplayCardBody = styled.div.attrs({
+const DisplayCardBody = styled.div.attrs({
   className: 'display-card-body',
 })<DisplayCardProps>`
   border: 1px solid lightgrey;
@@ -37,7 +38,7 @@ export const DisplayCardBody = styled.div.attrs({
   background: ${(props) => (props.background ? props.background : 'ghostwhite')};
 `
 
-export const DisplayCardRow = styled.div.attrs({
+const DisplayCardRow = styled.div.attrs({
   className: 'display-card-row',
 })<DisplayCardProps>`
   padding: 5px;
@@ -49,6 +50,14 @@ export const DisplayCardRow = styled.div.attrs({
 
 export const DisplayCardWrapperBody = (props: DisplayCardProps) => (
   <DisplayCardWrapper {...props}>
-    <DisplayCardBody {...props}>{props.children}</DisplayCardBody>
+    <DisplayCardBody {...props}>
+      {props.container ? <div className="container">{props.children}</div> : <>{props.children}</>}
+    </DisplayCardBody>
   </DisplayCardWrapper>
+)
+
+export const DisplayCardWrapperRow = (props: DisplayCardProps) => (
+  <DisplayCardRow {...props}>
+    {props.container ? <div className="row">{props.children}</div> : <>{props.children}</>}
+  </DisplayCardRow>
 )

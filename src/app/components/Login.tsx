@@ -9,7 +9,7 @@ import { userLogin } from '../actions/login.action'
 import { LoginResponse } from '../types/login.data.types'
 import { LocalStorage } from '../../common'
 import moment from 'moment'
-import { DisplayCardRow, DisplayCardWrapperBody } from '../../styles'
+import { DisplayCardWrapperRow, DisplayCardWrapperBody } from '../../styles'
 
 interface SignInProps {
   setAlert: (type: string, messageKey: string) => void
@@ -81,11 +81,11 @@ const Login = (props: SignInProps): React.ReactElement => {
 
   const signInForm = () => (
     <DisplayCardWrapperBody alignContent="center" width="20%">
-      <DisplayCardRow>
+      <DisplayCardWrapperRow>
         <h3>Welcome Back!</h3>
         <p>Please Sign In</p>
-      </DisplayCardRow>
-      <DisplayCardRow borderTop borderBtm>
+      </DisplayCardWrapperRow>
+      <DisplayCardWrapperRow borderTop borderBtm>
         <form>
           <Input
             id="sign_in_user_name"
@@ -109,8 +109,8 @@ const Login = (props: SignInProps): React.ReactElement => {
             onKeyPress={onSearchEnterCallback}
           />
         </form>
-      </DisplayCardRow>
-      <DisplayCardRow textAlign="center">
+      </DisplayCardWrapperRow>
+      <DisplayCardWrapperRow textAlign="center">
         <Button id={'sign-in-submit'} title="Sign In" onClick={handleSubmit} includeBorder color="green" />
         <Button
           id={'sign-in-create'}
@@ -119,10 +119,10 @@ const Login = (props: SignInProps): React.ReactElement => {
           includeBorder
           color="orange"
         />
-      </DisplayCardRow>
-      <DisplayCardRow borderTop textAlign="center">
+      </DisplayCardWrapperRow>
+      <DisplayCardWrapperRow borderTop textAlign="center">
         <Button id={'sign-in-forgot'} title="Forgot Password?" onClick={() => alert('TODO: Currently Unavailable')} />
-      </DisplayCardRow>
+      </DisplayCardWrapperRow>
     </DisplayCardWrapperBody>
   )
 
