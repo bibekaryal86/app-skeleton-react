@@ -3,7 +3,7 @@ import styled, { css } from 'styled-components'
 import { CSVLink } from 'react-csv'
 import { getCsvReport, getSortData, getSortedData } from '../utils/table'
 import { TABLE_EXPORT_KEYS_TO_AVOID, TABLE_SORTED_NONE_CODE } from '../../constants'
-import { DisplayCardRow, DisplayCardWrapperBody } from '../../styles'
+import { DisplayCardWrapperRow, DisplayCardWrapperBody } from '../../styles'
 
 const TableMaxWidthWrapper = styled.div.attrs({
   className: 'table-max-width-wrapper',
@@ -131,8 +131,8 @@ const Table = (props: TableProps): React.ReactElement | null => {
 
   return (
     <DisplayCardWrapperBody>
-      <DisplayCardRow fontWeight="bold">{props.title}</DisplayCardRow>
-      <DisplayCardRow>
+      <DisplayCardWrapperRow fontWeight="bold">{props.title}</DisplayCardWrapperRow>
+      <DisplayCardWrapperRow>
         <TableMaxWidthWrapper>
           <TableScrollWrapper>
             <TableWrapper>
@@ -198,7 +198,7 @@ const Table = (props: TableProps): React.ReactElement | null => {
             </CSVLinkWrapper>
           )}
         </TableMaxWidthWrapper>
-      </DisplayCardRow>
+      </DisplayCardWrapperRow>
     </DisplayCardWrapperBody>
   )
 }
