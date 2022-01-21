@@ -8,7 +8,6 @@ import { useLocation, useNavigate } from 'react-router-dom'
 import { userLogin } from '../actions/login.action'
 import { LoginResponse } from '../types/login.data.types'
 import { LocalStorage } from '../../common'
-import moment from 'moment'
 import { DisplayCardWrapperRow, DisplayCardWrapperBody } from '../../styles'
 
 interface SignInProps {
@@ -28,7 +27,7 @@ const Login = (props: SignInProps): React.ReactElement => {
 
   const userLoginSuccessLocalStorageActions = (loginResponse: LoginResponse) => {
     LocalStorage.setItem('token', loginResponse.token)
-    LocalStorage.setItem('tokenExpiration', moment().add(15, 'minutes'))
+    LocalStorage.setItem('tokenExpiration', new Date().setMinutes(new Date().getMinutes() + 15))
     LocalStorage.setItem('userDetails', loginResponse.userDetails)
   }
 
