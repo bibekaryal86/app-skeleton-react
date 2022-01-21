@@ -1,6 +1,6 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-import { DisplayCardRow, DisplayCardWrapperBody } from '../../styles'
+import { DisplayCardWrapperRow, DisplayCardWrapperBody } from '../../styles'
 
 const Home = (): React.ReactElement => {
   const homePageText = () => (
@@ -9,16 +9,16 @@ const Home = (): React.ReactElement => {
         <h5>Find something to display in Summary</h5>
       </DisplayCardWrapperBody>
       <DisplayCardWrapperBody>
-        <DisplayCardRow borderBtm>
+        <DisplayCardWrapperRow borderBtm>
           <h6>
             Go to some page, <Link to="/some_page">click here</Link>
           </h6>
-        </DisplayCardRow>
-        <DisplayCardRow>
+        </DisplayCardWrapperRow>
+        <DisplayCardWrapperRow>
           <h6>
             Go to another page, <Link to="/another_page">click here</Link>
           </h6>
-        </DisplayCardRow>
+        </DisplayCardWrapperRow>
       </DisplayCardWrapperBody>
     </>
   )

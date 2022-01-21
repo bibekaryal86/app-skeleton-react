@@ -1,9 +1,4 @@
 import AllGlobalStyles from './components/AllGlobalStyles'
-import {
-  DisplayCardBody,
-  DisplayCardRow,
-  DisplayCardWrapper,
-  DisplayCardWrapperBody,
-} from './components/StyledDisplayCard'
+import { DisplayCardWrapperBody, DisplayCardWrapperRow, DisplayCardWrapperColumn } from './components/StyledDisplayCard'
 
-export { AllGlobalStyles, DisplayCardBody, DisplayCardRow, DisplayCardWrapper, DisplayCardWrapperBody }
+export { AllGlobalStyles, DisplayCardWrapperBody, DisplayCardWrapperRow, DisplayCardWrapperColumn }
