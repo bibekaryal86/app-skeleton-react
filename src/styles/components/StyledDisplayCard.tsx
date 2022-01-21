@@ -69,5 +69,5 @@ export const DisplayCardWrapperRow = (props: DisplayCardProps) => (
 )
 
 export const DisplayCardWrapperColumn = (props: DisplayCardPropsColumn) => (
-  <>{props.classname ? <div className={props.classname}>{props.children}</div> : <>{props.children}</>}</>
+  <div className={props.classname}>{props.children}</div>
 )
