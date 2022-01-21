@@ -1,4 +1,4 @@
-import { SortData, TableData } from '../forms/Table'
+import { SortData, TableData, TableHeaderData } from '../forms/Table'
 import {
   CURRENCY_FORMAT_MATCHER_REGEX,
   DATE_FORMAT_MATCHER_REGEX,
@@ -24,7 +24,11 @@ interface CsvReport {
   filename: string
 }
 
-export function getCsvReport(tableHeaders: string[], tableData: TableData[], tableFilename?: string): CsvReport {
+export function getCsvReport(
+  tableHeaders: TableHeaderData[],
+  tableData: TableData[],
+  tableFilename?: string,
+): CsvReport {
   const tableDataKeys = Object.keys(tableData[0]) as Array<string>
 
   return {
@@ -34,13 +38,13 @@ export function getCsvReport(tableHeaders: string[], tableData: TableData[], tab
   }
 }
 
-function getHeaders(tableHeaders: string[], tableDataKeys: string[]): CsvHeaders[] {
+function getHeaders(tableHeaders: TableHeaderData[], tableDataKeys: string[]): CsvHeaders[] {
   const csvHeaders: CsvHeaders[] = []
 
   tableHeaders.forEach((header, index) => {
     !TABLE_EXPORT_KEYS_TO_AVOID.includes(tableDataKeys[index]) &&
       csvHeaders.push({
-        label: header,
+        label: header.headerTitle,
         key: tableDataKeys[index],
       })
   })

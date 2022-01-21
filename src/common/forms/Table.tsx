@@ -2,7 +2,7 @@ import React, { useCallback, useMemo, useState } from 'react'
 import styled, { css } from 'styled-components'
 import { CSVLink } from 'react-csv'
 import { getCsvReport, getSortData, getSortedData } from '../utils/table'
-import { TABLE_EXPORT_KEYS_TO_AVOID, TABLE_SORTED_NONE_CODE } from '../../constants'
+import { TABLE_SORTED_NONE_CODE } from '../../constants'
 import { DisplayCardWrapperRow, DisplayCardWrapperBody } from '../../styles'
 
 const TableMaxWidthWrapper = styled.div.attrs({
@@ -90,6 +90,11 @@ const CSVLinkWrapper = styled.div.attrs({ className: 'csv-link-wrapper' })`
 
 export type TableData = Record<string, string | JSX.Element>
 
+export interface TableHeaderData {
+  headerTitle: string
+  isSortAllowed?: boolean
+}
+
 export interface SortData {
   header?: string
   index?: number
@@ -100,7 +105,7 @@ export interface SortData {
 
 interface TableProps {
   title: string
-  headers: string[]
+  headers: TableHeaderData[]
   data: TableData[]
   footer?: string | TableData[]
   onHeaderClick?: (item: string) => void
@@ -108,7 +113,6 @@ interface TableProps {
   verticalAlign?: string
   isExportToCsv?: boolean
   exportToCsvFileName?: string
-  isSortAllowed?: boolean
 }
 
 const Table = (props: TableProps): React.ReactElement | null => {
@@ -142,13 +146,13 @@ const Table = (props: TableProps): React.ReactElement | null => {
                     <TableHead
                       key={key}
                       onClick={() => {
-                        props.onHeaderClick && props.onHeaderClick(header)
-                        props.isSortAllowed && sortTableData(header, key)
+                        props.onHeaderClick && props.onHeaderClick(header.headerTitle)
+                        header.isSortAllowed && sortTableData(header.headerTitle, key)
                       }}
-                      isSortAllowed={props.isSortAllowed && !TABLE_EXPORT_KEYS_TO_AVOID.includes(header)}
+                      isSortAllowed={header.isSortAllowed}
                     >
-                      {header}
-                      {header === sortData.header && String.fromCharCode(sortData.sortedDirection)}
+                      {header.headerTitle}
+                      {header.headerTitle === sortData.header && String.fromCharCode(sortData.sortedDirection)}
                     </TableHead>
                   ))}
                 </TableRow>
