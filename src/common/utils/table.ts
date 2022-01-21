@@ -3,8 +3,8 @@ import {
   CURRENCY_FORMAT_MATCHER_REGEX,
   DATE_FORMAT_MATCHER_REGEX,
   TABLE_EXPORT_KEY_FOR_TITLE,
-  TABLE_HEADER_DISPLAY_ONLY_SEPARATOR,
-  TABLE_HEADER_EXPORT_ONLY_SEPARATOR,
+  TABLE_DISPLAY_ONLY_SEPARATOR,
+  TABLE_EXPORT_ONLY_SEPARATOR,
   TABLE_SORT_DIRECTION_ASCENDING,
   TABLE_SORT_DIRECTION_DESCENDING,
   TABLE_SORTED_ASC_CODE,
@@ -47,9 +47,9 @@ function getHeaders(tableHeaders: TableHeaderData[], tableDataKeys: string[]): C
   const csvHeaders: CsvHeaders[] = []
 
   tableHeaders.forEach((header, index) => {
-    !tableDataKeys[index].includes(TABLE_HEADER_DISPLAY_ONLY_SEPARATOR) &&
+    !tableDataKeys[index].includes(TABLE_DISPLAY_ONLY_SEPARATOR) &&
       csvHeaders.push({
-        label: getHeaderTitle(header.headerTitle, TABLE_HEADER_EXPORT_ONLY_SEPARATOR),
+        label: getHeaderTitle(header.headerTitle, TABLE_EXPORT_ONLY_SEPARATOR),
         key: tableDataKeys[index],
       })
   })
@@ -63,7 +63,7 @@ function getData(tableData: TableData[], tableDataKeys: string[]): CsvData[] {
   tableData.forEach((data) => {
     const dataItem: CsvData = {}
     tableDataKeys.forEach((key) => {
-      if (!key.includes(TABLE_HEADER_DISPLAY_ONLY_SEPARATOR)) {
+      if (!key.includes(TABLE_DISPLAY_ONLY_SEPARATOR)) {
         dataItem[key] = getDataItemValue(data[key])
       }
     })

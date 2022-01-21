@@ -2,11 +2,7 @@ import React, { useCallback, useMemo, useState } from 'react'
 import styled, { css } from 'styled-components'
 import { CSVLink } from 'react-csv'
 import { getCsvReport, getHeaderTitle, getSortData, getSortedData } from '../utils/table'
-import {
-  TABLE_HEADER_DISPLAY_ONLY_SEPARATOR,
-  TABLE_HEADER_EXPORT_ONLY_SEPARATOR,
-  TABLE_SORTED_NONE_CODE,
-} from '../../constants'
+import { TABLE_DISPLAY_ONLY_SEPARATOR, TABLE_EXPORT_ONLY_SEPARATOR, TABLE_SORTED_NONE_CODE } from '../../constants'
 import { DisplayCardWrapperRow, DisplayCardWrapperBody } from '../../styles'
 
 const TableMaxWidthWrapper = styled.div.attrs({
@@ -148,7 +144,7 @@ const Table = (props: TableProps): React.ReactElement | null => {
                 <TableRow>
                   {props.headers.map((header, key) => {
                     return (
-                      !header.headerTitle.includes(TABLE_HEADER_EXPORT_ONLY_SEPARATOR) && (
+                      !header.headerTitle.includes(TABLE_EXPORT_ONLY_SEPARATOR) && (
                         <TableHead
                           key={key}
                           onClick={() => {
@@ -157,7 +153,7 @@ const Table = (props: TableProps): React.ReactElement | null => {
                           }}
                           isSortAllowed={header.isSortAllowed}
                         >
-                          {getHeaderTitle(header.headerTitle, TABLE_HEADER_DISPLAY_ONLY_SEPARATOR)}
+                          {getHeaderTitle(header.headerTitle, TABLE_DISPLAY_ONLY_SEPARATOR)}
                           {header.headerTitle === sortData.header && String.fromCharCode(sortData.sortedDirection)}
                         </TableHead>
                       )
@@ -179,7 +175,7 @@ const Table = (props: TableProps): React.ReactElement | null => {
                     >
                       {(Object.keys(tableData[0]) as Array<keyof TableData>).map((key) => {
                         return (
-                          !key.toString().includes(TABLE_HEADER_EXPORT_ONLY_SEPARATOR) && (
+                          !key.toString().includes(TABLE_EXPORT_ONLY_SEPARATOR) && (
                             <TableCellData key={key.toString()}>{item[key]}</TableCellData>
                           )
                         )
