@@ -104,7 +104,7 @@ export const Async = {
             LocalStorage.setItem('forceLogout', true)
           }
 
-          return Promise.resolve({ errMsg: response.status })
+          return Promise.resolve({ errMsg: response.statusText })
         }
 
         return response.json()
