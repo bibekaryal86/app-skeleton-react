@@ -10,12 +10,13 @@ export const checkBoxOptionsYesNo = [
   { value: 'NO', text: 'NO' },
 ]
 
+export const TABLE_HEADER_DISPLAY_ONLY_SEPARATOR = '_display'
+export const TABLE_HEADER_EXPORT_ONLY_SEPARATOR = '_export'
 export const TABLE_SORT_DIRECTION_ASCENDING = 'ASC'
 export const TABLE_SORT_DIRECTION_DESCENDING = 'DESC'
 export const TABLE_SORTED_ASC_CODE = 8657
 export const TABLE_SORTED_DESC_CODE = 8659
 export const TABLE_SORTED_NONE_CODE = 8205
-export const TABLE_EXPORT_KEYS_TO_AVOID = ['actions', 'Actions']
 export const TABLE_EXPORT_KEY_FOR_TITLE = 'title'
 
 export const DATE_FORMAT_MATCHER_REGEX = new RegExp('[0-9]{4}\\-[0-9]{2}\\-[0-9]{2}')

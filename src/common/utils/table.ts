@@ -3,7 +3,8 @@ import {
   CURRENCY_FORMAT_MATCHER_REGEX,
   DATE_FORMAT_MATCHER_REGEX,
   TABLE_EXPORT_KEY_FOR_TITLE,
-  TABLE_EXPORT_KEYS_TO_AVOID,
+  TABLE_HEADER_DISPLAY_ONLY_SEPARATOR,
+  TABLE_HEADER_EXPORT_ONLY_SEPARATOR,
   TABLE_SORT_DIRECTION_ASCENDING,
   TABLE_SORT_DIRECTION_DESCENDING,
   TABLE_SORTED_ASC_CODE,
@@ -24,6 +25,10 @@ interface CsvReport {
   filename: string
 }
 
+export function getHeaderTitle(headerTitle: string, separator: string): string {
+  return headerTitle.split(separator)[0]
+}
+
 export function getCsvReport(
   tableHeaders: TableHeaderData[],
   tableData: TableData[],
@@ -42,9 +47,9 @@ function getHeaders(tableHeaders: TableHeaderData[], tableDataKeys: string[]): C
   const csvHeaders: CsvHeaders[] = []
 
   tableHeaders.forEach((header, index) => {
-    !TABLE_EXPORT_KEYS_TO_AVOID.includes(tableDataKeys[index]) &&
+    !tableDataKeys[index].includes(TABLE_HEADER_DISPLAY_ONLY_SEPARATOR) &&
       csvHeaders.push({
-        label: header.headerTitle,
+        label: getHeaderTitle(header.headerTitle, TABLE_HEADER_EXPORT_ONLY_SEPARATOR),
         key: tableDataKeys[index],
       })
   })
@@ -58,7 +63,7 @@ function getData(tableData: TableData[], tableDataKeys: string[]): CsvData[] {
   tableData.forEach((data) => {
     const dataItem: CsvData = {}
     tableDataKeys.forEach((key) => {
-      if (!TABLE_EXPORT_KEYS_TO_AVOID.includes(key)) {
+      if (!key.includes(TABLE_HEADER_DISPLAY_ONLY_SEPARATOR)) {
         dataItem[key] = getDataItemValue(data[key])
       }
     })

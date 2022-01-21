@@ -1,8 +1,12 @@
 import React, { useCallback, useMemo, useState } from 'react'
 import styled, { css } from 'styled-components'
 import { CSVLink } from 'react-csv'
-import { getCsvReport, getSortData, getSortedData } from '../utils/table'
-import { TABLE_SORTED_NONE_CODE } from '../../constants'
+import { getCsvReport, getHeaderTitle, getSortData, getSortedData } from '../utils/table'
+import {
+  TABLE_HEADER_DISPLAY_ONLY_SEPARATOR,
+  TABLE_HEADER_EXPORT_ONLY_SEPARATOR,
+  TABLE_SORTED_NONE_CODE,
+} from '../../constants'
 import { DisplayCardWrapperRow, DisplayCardWrapperBody } from '../../styles'
 
 const TableMaxWidthWrapper = styled.div.attrs({
@@ -142,19 +146,23 @@ const Table = (props: TableProps): React.ReactElement | null => {
             <TableWrapper>
               <TableHeader>
                 <TableRow>
-                  {props.headers.map((header, key) => (
-                    <TableHead
-                      key={key}
-                      onClick={() => {
-                        props.onHeaderClick && props.onHeaderClick(header.headerTitle)
-                        header.isSortAllowed && sortTableData(header.headerTitle, key)
-                      }}
-                      isSortAllowed={header.isSortAllowed}
-                    >
-                      {header.headerTitle}
-                      {header.headerTitle === sortData.header && String.fromCharCode(sortData.sortedDirection)}
-                    </TableHead>
-                  ))}
+                  {props.headers.map((header, key) => {
+                    return (
+                      !header.headerTitle.includes(TABLE_HEADER_EXPORT_ONLY_SEPARATOR) && (
+                        <TableHead
+                          key={key}
+                          onClick={() => {
+                            props.onHeaderClick && props.onHeaderClick(header.headerTitle)
+                            header.isSortAllowed && sortTableData(header.headerTitle, key)
+                          }}
+                          isSortAllowed={header.isSortAllowed}
+                        >
+                          {getHeaderTitle(header.headerTitle, TABLE_HEADER_DISPLAY_ONLY_SEPARATOR)}
+                          {header.headerTitle === sortData.header && String.fromCharCode(sortData.sortedDirection)}
+                        </TableHead>
+                      )
+                    )
+                  })}
                 </TableRow>
               </TableHeader>
               <TableBody>
@@ -169,9 +177,13 @@ const Table = (props: TableProps): React.ReactElement | null => {
                       key={index}
                       onClick={() => props.onRowClick && props.onRowClick(item)}
                     >
-                      {(Object.keys(tableData[0]) as Array<keyof TableData>).map((key) => (
-                        <TableCellData key={key.toString()}>{item[key]}</TableCellData>
-                      ))}
+                      {(Object.keys(tableData[0]) as Array<keyof TableData>).map((key) => {
+                        return (
+                          !key.toString().includes(TABLE_HEADER_EXPORT_ONLY_SEPARATOR) && (
+                            <TableCellData key={key.toString()}>{item[key]}</TableCellData>
+                          )
+                        )
+                      })}
                     </TableRow>
                   ))
                 )}
