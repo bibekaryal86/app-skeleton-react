@@ -45,13 +45,13 @@ const SessionTimeout = (props: LogoutProps) => {
     (timeString: string) => {
       clearTimeout(startTimerInterval.current)
       warningInactiveInterval.current = window.setInterval(() => {
-        if (timeString) {
-          const expirationTime = moment(timeString)
-          const currentTime = moment()
+        const isAuthenticated = timeString?.trim()?.length > 0
 
-          if (expirationTime.isSameOrBefore(currentTime)) {
-            navigateToHome('Token Expired, Redirecting to Home')
-          }
+        const expirationTime = moment(timeString)
+        const currentTime = moment()
+
+        if (isAuthenticated && expirationTime.isSameOrBefore(currentTime)) {
+          navigateToHome('Token Expired, Redirecting to Home')
         }
       }, 1000)
     },
@@ -71,7 +71,7 @@ const SessionTimeout = (props: LogoutProps) => {
     clearTimeout(startTimerInterval.current)
     clearInterval(warningInactiveInterval.current)
 
-    const isAuthenticated = LocalStorage.getItem('tokenExpiration') as string
+    const isAuthenticated = (LocalStorage.getItem('tokenExpiration') as string)?.length > 0
     const isForceCheckout = LocalStorage.getItem('forceLogout') as boolean
 
     if (isForceCheckout && isAuthenticated) {
