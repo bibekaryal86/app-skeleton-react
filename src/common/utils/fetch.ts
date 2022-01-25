@@ -48,7 +48,7 @@ const getUrl = ({ path = '', queryParams = {}, pathParams = {} }: Partial<UrlOpt
   return pathWithParams + queryString
 }
 
-const getHeaders = (withAuth: boolean, requestHeaders: ParamObjects) => {
+const getHeaders = (withAuth: boolean, requestHeaders: ParamObjects, token: string) => {
   const headers: HeadersInit = {}
   headers['Accept'] = 'application/json'
   headers['Content-Type'] = 'application/json'
@@ -59,7 +59,6 @@ const getHeaders = (withAuth: boolean, requestHeaders: ParamObjects) => {
       headers['App_data'] = appData
     }
 
-    const token = LocalStorage.getItem('token') as string
     headers['Authorization'] = `Bearer ${token}`
   }
 
@@ -78,9 +77,14 @@ const getBody = (method: string, body: unknown) =>
 export const Async = {
   fetch: async (urlPath: string, options: Partial<FetchOptions>): Promise<FetchResponse> => {
     const { queryParams, pathParams, method = 'GET', requestBody = {}, requestHeaders = {}, noAuth = false } = options
+    const token = LocalStorage.getItem('token') as string
+
+    if (!noAuth && !token) {
+      throw new Error('Auth Request But No Auth!')
+    }
 
     const url = getUrl({ path: urlPath, queryParams, pathParams })
-    const headers = getHeaders(!noAuth, requestHeaders)
+    const headers = getHeaders(!noAuth, requestHeaders, token)
     const body = getBody(method, requestBody)
 
     const init: RequestInit = {
