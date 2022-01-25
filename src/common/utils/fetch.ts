@@ -79,7 +79,7 @@ export const Async = {
     const { queryParams, pathParams, method = 'GET', requestBody = {}, requestHeaders = {}, noAuth = false } = options
     const token = LocalStorage.getItem('token') as string
 
-    // this is a bug and it should not come to this
+    // this is a bug, and it should not come to this
     // it comes to this after logging out from SessionTimeout
     if (!noAuth && !token) {
       throw new Error('Auth Request But No Auth!')
