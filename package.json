@@ -51,7 +51,7 @@
     "@babel/preset-typescript": "^7.16.7",
     "@babel/runtime": "^7.17.8",
     "@types/enzyme": "^3.10.11",
-    "@types/react": "^17.0.41",
+    "@types/react": "^17.0.43",
     "@types/react-csv": "^1.1.2",
     "@types/react-dom": "^17.0.14",
     "@types/react-router-dom": "^5.3.3",
