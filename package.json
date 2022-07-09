@@ -58,7 +58,7 @@
     "@types/redux-immutable-state-invariant": "^2.1.2",
     "@types/styled-components": "^5.1.25",
     "@typescript-eslint/eslint-plugin": "^5.30.3",
-    "@typescript-eslint/parser": "^5.30.3",
+    "@typescript-eslint/parser": "^5.30.5",
     "@wojtekmaj/enzyme-adapter-react-17": "^0.6.7",
     "babel-loader": "^8.2.5",
     "clean-webpack-plugin": "^4.0.0",
