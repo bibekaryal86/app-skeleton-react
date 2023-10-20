@@ -51,7 +51,7 @@
     "@babel/preset-typescript": "^7.23.2",
     "@babel/runtime": "^7.23.2",
     "@redux-devtools/extension": "^3.2.5",
-    "@types/react": "^18.2.29",
+    "@types/react": "^18.2.30",
     "@types/react-csv": "^1.1.7",
     "@types/react-dom": "^18.2.14",
     "@types/react-router-dom": "^5.3.3",
