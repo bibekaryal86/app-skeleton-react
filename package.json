@@ -43,13 +43,13 @@
     "styled-components": "^6.1.1"
   },
   "devDependencies": {
-    "@babel/core": "^7.23.3",
+    "@babel/core": "^7.23.5",
     "@babel/plugin-transform-react-jsx": "^7.23.4",
     "@babel/plugin-transform-runtime": "^7.23.4",
-    "@babel/preset-env": "^7.23.3",
+    "@babel/preset-env": "^7.23.5",
     "@babel/preset-react": "^7.23.3",
     "@babel/preset-typescript": "^7.23.3",
-    "@babel/runtime": "^7.23.4",
+    "@babel/runtime": "^7.23.5",
     "@redux-devtools/extension": "^3.2.6",
     "@types/react": "^18.2.39",
     "@types/react-csv": "^1.1.9",
