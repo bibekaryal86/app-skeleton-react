@@ -48,7 +48,7 @@
     "@babel/plugin-transform-runtime": "^7.24.3",
     "@babel/preset-env": "^7.24.5",
     "@babel/preset-react": "^7.24.1",
-    "@babel/preset-typescript": "^7.24.1",
+    "@babel/preset-typescript": "^7.24.6",
     "@babel/runtime": "^7.24.5",
     "@redux-devtools/extension": "^3.3.0",
     "@types/react": "^18.3.3",
