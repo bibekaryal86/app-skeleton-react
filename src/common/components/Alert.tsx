@@ -22,18 +22,18 @@ const AlertWrapper = styled.div.attrs({
           ${successCss()}
         `
       : type === 'info'
-      ? css`
-          ${infoCss()}
-        `
-      : type === 'warn'
-      ? css`
-          ${warnCss()}
-        `
-      : type === 'failure'
-      ? css`
-          ${failureCss()}
-        `
-      : css``}
+        ? css`
+            ${infoCss()}
+          `
+        : type === 'warn'
+          ? css`
+              ${warnCss()}
+            `
+          : type === 'failure'
+            ? css`
+                ${failureCss()}
+              `
+            : css``}
 `
 
 const successCss = () => 'color: #3c763d; ' + 'background-color: #dff0d8; ' + 'border-color: #d6e9c6; '
