@@ -1,9 +1,10 @@
 import React, { useContext, useEffect, useState } from 'react'
 import { NavLink } from 'react-router-dom'
-import styled from 'styled-components'
-import { UserDetails } from '../types/login.data.types'
-import { AuthContext } from '../context/AuthContext'
+import { styled } from 'styled-components'
+
 import { protectedRoutes } from './AppRoutes'
+import { AuthContext } from '../context/AuthContext'
+import { UserDetails } from '../types/login.data.types'
 
 const StyledHeader = styled.header.attrs({
   className: 'styled-header',

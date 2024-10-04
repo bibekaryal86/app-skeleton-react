@@ -1,6 +1,7 @@
 import { connect } from 'react-redux'
-import { resetAlert, resetSpinner, setAlert, setSpinner } from '../../common'
+
 import Login from './Login'
+import { resetAlert, resetSpinner, setAlert, setSpinner } from '../../common'
 
 const mapDispatchToProps = {
   setAlert: (type: string, messageKey: string) => setAlert(type, messageKey),

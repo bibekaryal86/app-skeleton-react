@@ -1,10 +1,11 @@
 import React from 'react'
 import { Navigate, Route, Routes, useLocation } from 'react-router-dom'
+
 import LoginContainer from './LoginContainer'
-import { Home } from '../../home'
-import NotFound from './NotFound'
 import LogoutContainer from './LogoutContainer'
+import NotFound from './NotFound'
 import { LocalStorage } from '../../common'
+import { Home } from '../../home'
 import { RoutesType } from '../types/routes.data.types'
 
 const AppRoutes = (): React.ReactElement => {

@@ -69,7 +69,10 @@ module.exports = (env) => {
         },
       }),
       new ESLintPlugin({
+        configType: 'flat',
         extensions: ['js', 'ts', 'tsx'],
+        failOnWarning: false,
+        failOnError: false,
       }),
       new DotenvPlugin({
         path: './variables.env.dev',

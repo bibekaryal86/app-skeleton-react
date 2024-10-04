@@ -1,6 +1,7 @@
 import React from 'react'
-import { RESET_ALERT, SET_ALERT } from '../types/common.action.types'
+
 import { ALERT_MESSAGES } from '../../constants'
+import { RESET_ALERT, SET_ALERT } from '../types/common.action.types'
 
 export interface AlertState {
   messageType: string

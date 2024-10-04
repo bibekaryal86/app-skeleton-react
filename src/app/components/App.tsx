@@ -1,14 +1,15 @@
 import React, { useCallback, useEffect, useReducer } from 'react'
 import { connect } from 'react-redux'
-import { AllGlobalStyles } from '../../styles'
-import Header from './Header'
-import { Alert, LocalStorage, resetSpinner, setSpinner, Spinner } from '../../common'
+
 import Body from './Body'
 import Footer from './Footer'
-import { AuthContext, AuthState, DefaultAuthState } from '../context/AuthContext'
-import { UserDetails } from '../types/login.data.types'
-import authReducer from '../reducers/auth.reducer'
+import Header from './Header'
 import SessionTimeoutContainer from './SessionTimeoutContainer'
+import { Alert, LocalStorage, resetSpinner, setSpinner, Spinner } from '../../common'
+import { AllGlobalStyles } from '../../styles'
+import { AuthContext, AuthState, DefaultAuthState } from '../context/AuthContext'
+import authReducer from '../reducers/auth.reducer'
+import { UserDetails } from '../types/login.data.types'
 
 const AppRender = ({ components }: { components: React.ReactElement[] }) => {
   return (

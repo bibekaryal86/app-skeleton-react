@@ -1,6 +1,7 @@
 import { connect } from 'react-redux'
-import { userLogout } from '../actions/logout.action'
+
 import SessionTimeout from './SessionTimeout'
+import { userLogout } from '../actions/logout.action'
 
 const mapDispatchToProps = {
   userLogout: () => userLogout(),

@@ -1,5 +1,6 @@
 import React, { useCallback, useState } from 'react'
-import styled, { css } from 'styled-components'
+import { css, styled } from 'styled-components'
+
 import Button from './Button'
 
 const FormLabel = styled.label``
