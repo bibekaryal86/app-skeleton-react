@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react'
 import { createPortal } from 'react-dom'
-import styled from 'styled-components'
+import { styled } from 'styled-components'
+
 import Button from '../forms/Button'
 
 const ModalOverlay = styled.div.attrs({

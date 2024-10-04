@@ -1,9 +1,10 @@
 import React, { useCallback, useMemo, useState } from 'react'
-import styled, { css } from 'styled-components'
 import { CSVLink } from 'react-csv'
-import { getCsvReport, getHeaderTitle, getSortData, getSortedData } from '../utils/table'
+import { css, styled } from 'styled-components'
+
 import { TABLE_DISPLAY_ONLY_SEPARATOR, TABLE_EXPORT_ONLY_SEPARATOR, TABLE_SORTED_NONE_CODE } from '../../constants'
-import { DisplayCardWrapperRow, DisplayCardWrapperBody } from '../../styles'
+import { DisplayCardWrapperBody, DisplayCardWrapperRow } from '../../styles'
+import { getCsvReport, getHeaderTitle, getSortData, getSortedData } from '../utils/table'
 
 const TableMaxWidthWrapper = styled.div.attrs({
   className: 'table-max-width-wrapper',

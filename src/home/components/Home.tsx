@@ -1,6 +1,7 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-import { DisplayCardWrapperRow, DisplayCardWrapperBody } from '../../styles'
+
+import { DisplayCardWrapperBody, DisplayCardWrapperRow } from '../../styles'
 
 const Home = (): React.ReactElement => {
   const homePageText = () => (

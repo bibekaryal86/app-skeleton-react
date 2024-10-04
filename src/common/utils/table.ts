@@ -1,9 +1,8 @@
-import { SortData, TableData, TableHeaderData } from '../forms/Table'
 import {
   CURRENCY_FORMAT_MATCHER_REGEX,
   DATE_FORMAT_MATCHER_REGEX,
-  TABLE_EXPORT_KEY_FOR_TITLE,
   TABLE_DISPLAY_ONLY_SEPARATOR,
+  TABLE_EXPORT_KEY_FOR_TITLE,
   TABLE_EXPORT_ONLY_SEPARATOR,
   TABLE_SORT_DIRECTION_ASCENDING,
   TABLE_SORT_DIRECTION_DESCENDING,
@@ -11,6 +10,7 @@ import {
   TABLE_SORTED_DESC_CODE,
   TABLE_SORTED_NONE_CODE,
 } from '../../constants'
+import { SortData, TableData, TableHeaderData } from '../forms/Table'
 
 interface CsvHeaders {
   label: string

@@ -1,4 +1,5 @@
 import React from 'react'
+
 import { RESET_SPINNER, SET_SPINNER } from '../types/common.action.types'
 
 export interface SpinnerState {

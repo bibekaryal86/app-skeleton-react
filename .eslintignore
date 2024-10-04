@@ -1,9 +1,0 @@
-*.snap
-webpack.dev.config.js
-webpack.docker.config.js
-webpack.prod.config.js
-jest.setup.js
-jest.config.js
-variables.env.dev
-variables.env.prod
-variables.env.docker

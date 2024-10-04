@@ -1,5 +1,5 @@
-import { MSG_KEY_FAIL_SIGNIN, MSG_KEY_SOMETHING_WENT_WRONG } from '../../constants'
 import { Async, FetchOptions, getEndpoint } from '../../common'
+import { MSG_KEY_FAIL_SIGNIN, MSG_KEY_SOMETHING_WENT_WRONG } from '../../constants'
 import { DefaultLoginResponse, LoginResponse } from '../types/login.data.types'
 
 export const userLogin = async (username: string, password: string): Promise<LoginResponse> => {

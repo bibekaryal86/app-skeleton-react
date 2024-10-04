@@ -2,6 +2,7 @@ const webpack = require('webpack')
 const path = require('path')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const { CleanWebpackPlugin } = require('clean-webpack-plugin')
+const ESLintPlugin = require('eslint-webpack-plugin')
 const DotenvPlugin = require('dotenv-webpack')
 
 module.exports = (env) => {
@@ -58,6 +59,12 @@ module.exports = (env) => {
         },
       }),
       new CleanWebpackPlugin(),
+      new ESLintPlugin({
+        configType: 'flat',
+        extensions: ['js', 'ts', 'tsx'],
+        failOnWarning: false,
+        failOnError: false,
+      }),
       new DotenvPlugin({
         path: './variables.env.prod',
       }),

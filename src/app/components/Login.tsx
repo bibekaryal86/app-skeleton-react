@@ -1,14 +1,13 @@
 import React, { useCallback, useContext, useEffect, useState } from 'react'
-import { Input, InputType } from '../../common'
-import { Button } from '../../common'
-import { validateLogInInput } from '../utils/loginValidate'
-import { ALERT_TYPE_FAILURE, ALERT_TYPE_INFO, MSG_KEY_INVALID_SIGNIN, MSG_KEY_SIGNIN_FIRST } from '../../constants'
-import { AuthContext } from '../context/AuthContext'
 import { useLocation, useNavigate } from 'react-router-dom'
+
+import { Button, Input, InputType, LocalStorage } from '../../common'
+import { ALERT_TYPE_FAILURE, ALERT_TYPE_INFO, MSG_KEY_INVALID_SIGNIN, MSG_KEY_SIGNIN_FIRST } from '../../constants'
+import { DisplayCardWrapperBody, DisplayCardWrapperRow } from '../../styles'
 import { userLogin } from '../actions/login.action'
+import { AuthContext } from '../context/AuthContext'
 import { LoginResponse } from '../types/login.data.types'
-import { LocalStorage } from '../../common'
-import { DisplayCardWrapperRow, DisplayCardWrapperBody } from '../../styles'
+import { validateLogInInput } from '../utils/loginValidate'
 
 interface SignInProps {
   setAlert: (type: string, messageKey: string) => void

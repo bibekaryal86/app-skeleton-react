@@ -1,6 +1,7 @@
 import React from 'react'
-import { GlobalDispatch } from '../store/redux'
+
 import { LocalStorage, SessionStorage } from '../../common'
+import { GlobalDispatch } from '../store/redux'
 import { USER_LOGOUT } from '../types/login.action.types'
 
 export const userLogout = () => {

@@ -1,9 +1,9 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-/* eslint-disable @typescript-eslint/explicit-module-boundary-types */
-import { applyMiddleware, combineReducers, createStore } from 'redux'
-import thunk from 'redux-thunk'
-import reduxImmutableStateInvariant from 'redux-immutable-state-invariant'
 import { composeWithDevTools } from '@redux-devtools/extension'
+import { applyMiddleware, combineReducers, createStore } from 'redux'
+import reduxImmutableStateInvariant from 'redux-immutable-state-invariant'
+import { thunk } from 'redux-thunk'
+
 import { alert, AlertState, spinner, SpinnerState } from '../../common'
 import { USER_LOGOUT } from '../types/login.action.types'
 

@@ -1,6 +1,7 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import styled, { keyframes } from 'styled-components'
+import { keyframes, styled } from 'styled-components'
+
 import { GlobalState } from '../../app/store/redux'
 
 interface SpinnerProps {

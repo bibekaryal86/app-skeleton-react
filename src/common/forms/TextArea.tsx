@@ -1,5 +1,5 @@
 import React, { useCallback, useState } from 'react'
-import styled, { css } from 'styled-components'
+import { css, styled } from 'styled-components'
 
 const FormLabel = styled.label``
 const FormTextArea = styled.textarea``

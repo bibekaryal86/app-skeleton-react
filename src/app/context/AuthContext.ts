@@ -1,4 +1,5 @@
 import { createContext } from 'react'
+
 import { DefaultUserDetails, UserDetails } from '../types/login.data.types'
 
 export interface AuthState {
