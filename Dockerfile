@@ -1,5 +1,5 @@
 # STAGE 1: BUILD #
-FROM node:18-alpine as build
+FROM node:20-alpine as build
 WORKDIR /usr/src/app
 COPY package*.json /usr/src/app/
 RUN npm install --production
@@ -8,7 +8,7 @@ COPY . /usr/src/app/
 RUN npm run build
 
 # STAGE 2: PRODUCTION DEPLOYMENT #
-FROM nginx:1.24.0-alpine
+FROM nginx:1.27.2-alpine
 COPY --from=build /usr/src/app/build /usr/share/nginx/html
 EXPOSE 80
 CMD ["nginx", "-g", "daemon off;"]
