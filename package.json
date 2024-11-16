@@ -55,7 +55,7 @@
     "@babel/preset-typescript": "^7.26.0",
     "@babel/runtime": "^7.26.0",
     "@eslint/compat": "^1.2.2",
-    "@eslint/eslintrc": "^3.1.0",
+    "@eslint/eslintrc": "^3.2.0",
     "@eslint/js": "^9.14.0",
     "@redux-devtools/extension": "^3.3.0",
     "@types/react": "^18.3.12",
