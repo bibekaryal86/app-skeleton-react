@@ -75,7 +75,7 @@
     "eslint-plugin-import": "^2.31.0",
     "eslint-plugin-prettier": "^5.2.1",
     "eslint-plugin-react": "^7.37.2",
-    "eslint-plugin-react-hooks": "^5.1.0-rc.0",
+    "eslint-plugin-react-hooks": "^5.1.0",
     "eslint-webpack-plugin": "^4.2.0",
     "fork-ts-checker-webpack-plugin": "^9.0.2",
     "globals": "^15.13.0",
@@ -90,7 +90,7 @@
     "redux-mock-store": "^1.5.5",
     "ts-jest": "^29.2.5",
     "typescript": "^5.7.2",
-    "webpack": "^5.97.0",
+    "webpack": "^5.97.1",
     "webpack-cli": "^5.1.4",
     "webpack-dev-server": "^5.1.0"
   }
