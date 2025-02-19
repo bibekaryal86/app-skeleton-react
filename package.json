@@ -41,7 +41,7 @@
     "react-csv": "^2.2.2",
     "react-dom": "^19.0.0",
     "react-redux": "^9.2.0",
-    "react-router-dom": "^7.1.5",
+    "react-router-dom": "^7.2.0",
     "redux": "^5.0.1",
     "redux-thunk": "^3.1.0",
     "styled-components": "^6.1.15"
@@ -71,7 +71,7 @@
     "dotenv-webpack": "^8.1.0",
     "eslint": "^9.20.1",
     "eslint-config-prettier": "^10.0.1",
-    "eslint-import-resolver-typescript": "^3.8.1",
+    "eslint-import-resolver-typescript": "^3.8.2",
     "eslint-plugin-import": "^2.31.0",
     "eslint-plugin-prettier": "^5.2.3",
     "eslint-plugin-react": "^7.37.4",
