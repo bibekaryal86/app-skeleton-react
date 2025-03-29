@@ -37,11 +37,11 @@
   "license": "ISC",
   "homepage": "https://github.com/bibekaryal86/react-spa-skeleton#readme",
   "dependencies": {
-    "react": "^19.0.0",
+    "react": "^19.1.0",
     "react-csv": "^2.2.2",
-    "react-dom": "^19.0.0",
+    "react-dom": "^19.1.0",
     "react-redux": "^9.2.0",
-    "react-router-dom": "^7.4.0",
+    "react-router-dom": "^7.4.1",
     "redux": "^5.0.1",
     "redux-thunk": "^3.1.0",
     "styled-components": "^6.1.16"
@@ -71,7 +71,7 @@
     "dotenv-webpack": "^8.1.0",
     "eslint": "^9.23.0",
     "eslint-config-prettier": "^10.1.1",
-    "eslint-import-resolver-typescript": "^4.2.5",
+    "eslint-import-resolver-typescript": "^4.2.7",
     "eslint-plugin-import": "^2.31.0",
     "eslint-plugin-prettier": "^5.2.5",
     "eslint-plugin-react": "^7.37.4",
