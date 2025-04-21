@@ -1,4 +1,4 @@
-runtime: nodejs22
+runtime: java21
 env: standard
 instance_class: F1
 handlers:
