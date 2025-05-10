@@ -32,10 +32,10 @@
     "react-csv": "^2.2.2",
     "react-dom": "^19.1.0",
     "react-redux": "^9.2.0",
-    "react-router-dom": "^7.5.3",
+    "react-router-dom": "^7.6.0",
     "redux": "^5.0.1",
     "redux-thunk": "^3.1.0",
-    "styled-components": "^6.1.17"
+    "styled-components": "^6.1.18"
   },
   "devDependencies": {
     "@babel/core": "^7.27.1",
