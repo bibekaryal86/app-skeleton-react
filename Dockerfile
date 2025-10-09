@@ -8,7 +8,7 @@ COPY . /usr/src/app/
 RUN npm run build
 
 # STAGE 2: PRODUCTION DEPLOYMENT #
-FROM nginx:1.29.1-alpine
+FROM nginx:1.29.2-alpine
 COPY --from=build /usr/src/app/build /usr/share/nginx/html
 EXPOSE 80
 CMD ["nginx", "-g", "daemon off;"]
