@@ -28,9 +28,9 @@
   "license": "ISC",
   "homepage": "https://github.com/bibekaryal86/react-spa-skeleton#readme",
   "dependencies": {
-    "react": "^19.2.1",
+    "react": "^19.2.3",
     "react-csv": "^2.2.2",
-    "react-dom": "^19.2.1",
+    "react-dom": "^19.2.3",
     "react-redux": "^9.2.0",
     "react-router-dom": "^7.10.1",
     "redux": "^5.0.1",
