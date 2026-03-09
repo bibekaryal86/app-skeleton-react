@@ -48,7 +48,7 @@
     "@eslint/compat": "^2.0.3",
     "@eslint/eslintrc": "^3.3.5",
     "@eslint/js": "^9.39.2",
-    "@redux-devtools/extension": "^3.3.0",
+    "@redux-devtools/extension": "^4.0.0",
     "@types/react": "^19.2.14",
     "@types/react-csv": "^1.1.10",
     "@types/react-dom": "^19.2.3",
